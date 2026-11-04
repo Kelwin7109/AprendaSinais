@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-BR" class="h-full">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aprenda Libras com uma plataforma inclusiva, interativa e gratuita.">
+    <meta name="theme-color" content="#0f172a">
+    <title>Aprenda Sinais - Plataforma de Ensino de Libras</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: 'rgb(var(--brand-50) / <alpha-value>)',
+              100: 'rgb(var(--brand-100) / <alpha-value>)',
+              200: 'rgb(var(--brand-200) / <alpha-value>)',
+              300: 'rgb(var(--brand-300) / <alpha-value>)',
+              400: 'rgb(var(--brand-400) / <alpha-value>)',
+              500: 'rgb(var(--brand-500) / <alpha-value>)',
+              600: 'rgb(var(--brand-600) / <alpha-value>)',
+              700: 'rgb(var(--brand-700) / <alpha-value>)',
+              800: 'rgb(var(--brand-800) / <alpha-value>)',
+              900: 'rgb(var(--brand-900) / <alpha-value>)',
+              950: 'rgb(var(--brand-950) / <alpha-value>)',
+            }
+          },
+          spacing: {
+            px: 'var(--space-px)',
+            '0.5': 'var(--space-0-5)',
+            '1': 'var(--space-1)',
+            '1.5': 'var(--space-1-5)',
+            '2': 'var(--space-2)',
+            '2.5': 'var(--space-2-5)',
+            '3': 'var(--space-3)',
+            '3.5': 'var(--space-3-5)',
+            '4': 'var(--space-4)',
+            '5': 'var(--space-5)',
+            '6': 'var(--space-6)',
+            '8': 'var(--space-8)',
+            '10': 'var(--space-10)',
+            '12': 'var(--space-12)',
+          },
+          borderRadius: {
+            sm: 'var(--radius-sm)',
+            DEFAULT: 'var(--radius-default)',
+            md: 'var(--radius-md)',
+            lg: 'var(--radius-lg)',
+            xl: 'var(--radius-xl)',
+            '2xl': 'var(--radius-2xl)',
+            '3xl': 'var(--radius-3xl)',
+            full: 'var(--radius-full)',
+          },
+          boxShadow: {
+            card: 'var(--shadow-card)',
+            overlay: 'var(--shadow-overlay)',
+          },
+          fontFamily: {
+            sans: ['var(--font-sans)'],
+          },
+          keyframes: {
+            waveHand: {
+              '0%, 100%': { transform: 'rotate(0deg)' },
+              '50%': { transform: 'rotate(15deg)' },
+            },
+            pulseSubtle: {
+              '0%, 100%': { opacity: '1' },
+              '50%': { opacity: '0.7' },
+            }
+          },
+          animation: {
+            wave: 'waveHand 2s infinite ease-in-out',
+            pulseSubtle: 'pulseSubtle 2s infinite ease-in-out',
+          }
+        }
+      }
+    }</script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <div id="root"></div>
+
+    <!-- Scripts legados carregam antes do m?dulo React porque compartilham estado global. -->
+    <script src="/legacy/state-and-routing.js"></script>
+    <script src="/legacy/public-pages.js"></script>
+    <script src="/legacy/authenticated-pages.js"></script>
+    <script src="/legacy/interactions.js"></script>
+    <script src="/legacy/authentication.js"></script>
+    <script src="/legacy/accessibility.js"></script>
+    <script src="/legacy/analytics.js"></script>
+    <script src="/legacy/live-classes.js"></script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
