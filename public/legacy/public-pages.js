@@ -298,7 +298,7 @@
                     <div>
                       <label for="login-pass" class="block text-xs font-bold uppercase text-slate-700 mb-1">Senha</label>
                       <div class="flex gap-2">
-                        <input type="password" id="login-pass" value="123456" autocomplete="current-password" required aria-describedby="login-pass-error" oninput="validateLoginField('pass')" class="min-w-0 flex-1 px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                        <input type="password" id="login-pass" autocomplete="current-password" required aria-describedby="login-pass-error" oninput="validateLoginField('pass')" class="min-w-0 flex-1 px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none">
                         <button type="button" onclick="togglePasswordVisibility('login-pass', this)" class="px-3 rounded-xl border border-slate-300 text-xs font-bold text-slate-600" aria-label="Mostrar senha">Mostrar</button>
                       </div>
                       <p id="login-pass-error" class="mt-1 text-xs text-red-600" aria-live="polite"></p>
@@ -313,8 +313,8 @@
                     <form onsubmit="handlePasswordRecovery(event)" class="space-y-3">
                       <label for="recovery-email" class="block text-xs font-bold text-brand-950">Digite seu e-mail para recuperar o acesso</label>
                       <input type="email" id="recovery-email" autocomplete="email" placeholder="seu.email@exemplo.com" required class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm">
-                      <p id="recovery-message" class="text-xs text-slate-700" aria-live="polite">No modo demonstração, o envio de e-mail ainda não está conectado.</p>
-                      <button type="submit" class="w-full rounded-lg bg-brand-600 px-3 py-2 text-sm font-bold text-white">Solicitar recuperação</button>
+                      <p id="recovery-message" class="text-xs text-slate-700" aria-live="polite">A recuperação por e-mail não está disponível nesta versão demonstrativa.</p>
+                      <button type="submit" class="w-full rounded-lg bg-brand-600 px-3 py-2 text-sm font-bold text-white">Ver informação</button>
                     </form>
                   </div>
 
@@ -328,34 +328,6 @@
               </div>
             </section>
           </main>
-          `;
-
-        case 'redefinir-senha':
-          return `
-            <main id="main-content">
-              <section class="py-16 bg-slate-50 flex-grow flex items-center justify-center hc-bg">
-                <div class="max-w-md w-full mx-auto px-4">
-                  <div class="bg-white p-8 rounded-3xl shadow-2xl border border-slate-200 space-y-6 hc-card">
-                    <div class="text-center space-y-2">
-                      <h1 class="text-2xl font-black text-slate-900 hc-text">Criar nova senha</h1>
-                      <p class="text-xs text-slate-500">Escolha uma senha com pelo menos 8 caracteres.</p>
-                    </div>
-                    <form onsubmit="handlePasswordReset(event)" class="space-y-4">
-                      <div>
-                        <label for="reset-pass" class="block text-xs font-bold uppercase text-slate-700 mb-1">Nova senha</label>
-                        <input type="password" id="reset-pass" autocomplete="new-password" minlength="8" required class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none">
-                      </div>
-                      <div>
-                        <label for="reset-pass-confirm" class="block text-xs font-bold uppercase text-slate-700 mb-1">Confirmar nova senha</label>
-                        <input type="password" id="reset-pass-confirm" autocomplete="new-password" required class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none">
-                      </div>
-                      <p id="reset-pass-error" class="text-xs text-red-600" aria-live="polite"></p>
-                      <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 rounded-xl shadow-md transition text-sm">Salvar nova senha</button>
-                    </form>
-                  </div>
-                </div>
-              </section>
-            </main>
           `;
 
         case 'cadastro':

@@ -25,15 +25,8 @@
 - `public/legacy/`: lógica e templates das páginas, carregados para preservar as ações atuais da plataforma.
 
 Tailwind CSS, Chart.js e Lucide continuam carregados por CDN, como no HTML original.
-# Autenticação com Supabase
 
-O login, o cadastro e a recuperação de senha usam Supabase Auth. Para habilitar:
+## Autenticação demonstrativa
 
-1. Crie um projeto no Supabase e copie a URL do projeto e a chave publicável (anon).
-2. Copie `.env.example` para `.env.local` e preencha `VITE_SUPABASE_URL` e `VITE_SUPABASE_ANON_KEY`.
-3. No painel Supabase, em **Authentication → URL Configuration**, defina a URL local (por exemplo `http://localhost:5173`) como Site URL e adicione `http://localhost:5173/?page=redefinir-senha` à lista de Redirect URLs. Adicione também a URL publicada do site e o respectivo caminho de redefinição.
-4. Configure o provedor de e-mail em **Authentication → SMTP Settings** antes de publicar, para que confirmação de cadastro e recuperação cheguem aos usuários.
-5. Reinicie o servidor Vite após alterar as variáveis de ambiente.
-
-O projeto usa apenas a chave publicável/anon no navegador; nunca coloque a `service_role` no frontend. O botão “Aluno Demo” permanece disponível como acesso de demonstração e não cria uma conta Supabase.
+Login e cadastro são simulações de front-end: não validam credenciais nem criam contas reais. O progresso e alguns dados são armazenados no `localStorage` deste navegador. Recuperação por e-mail não está disponível sem um serviço de autenticação.
 

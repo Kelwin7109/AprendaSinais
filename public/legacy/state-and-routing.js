@@ -23,23 +23,11 @@
 
     // Load or initialize persistent state
     let state = JSON.parse(localStorage.getItem('aprenda_sinais_v2_state')) || DEFAULT_STATE;
-    // Authentication is controlled by Supabase, never by the cached app state.
     state.isAuthenticated = false;
 
     function saveState() {
       localStorage.setItem('aprenda_sinais_v2_state', JSON.stringify(state));
     }
-
-    window.applySupabaseSession = function (session) {
-      state.isAuthenticated = Boolean(session?.user);
-      if (session?.user) {
-        state.user.email = session.user.email || '';
-        state.user.name = session.user.user_metadata?.full_name || session.user.user_metadata?.name || session.user.email?.split('@')[0] || 'Aluno';
-      } else if (!['home', 'sobre', 'login', 'cadastro', 'redefinir-senha'].includes(state.activePage)) {
-        state.activePage = 'home';
-      }
-      saveState();
-    };
 
     /* ==========================================================================
        MINI COURSE STEPS DATABASE (10 DETAILED STAGES)
@@ -76,7 +64,7 @@
       if (param) state.activeCourseStep = param;
       saveState();
 
-      const isPublicPage = ['home', 'sobre', 'login', 'cadastro', 'redefinir-senha'].includes(page);
+      const isPublicPage = ['home', 'sobre', 'login', 'cadastro'].includes(page);
       if (!isPublicPage && !state.isAuthenticated) {
         showToast('Por favor, faça login para acessar a área de estudos.', 'info');
         navigateTo('login');

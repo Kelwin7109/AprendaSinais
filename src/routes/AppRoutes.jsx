@@ -3,7 +3,6 @@ import HomePage from '../pages/HomePage';
 import AboutPage from '../pages/AboutPage';
 import LoginPage from '../pages/LoginPage';
 import RegisterPage from '../pages/RegisterPage';
-import ResetPasswordPage from '../pages/ResetPasswordPage';
 import DashboardPage from '../pages/DashboardPage';
 import CoursePage from '../pages/CoursePage';
 import EbooksPage from '../pages/EbooksPage';
@@ -16,7 +15,6 @@ const routes = {
   sobre: AboutPage,
   login: LoginPage,
   cadastro: RegisterPage,
-  'redefinir-senha': ResetPasswordPage,
   dashboard: DashboardPage,
   curso: CoursePage,
   ebooks: EbooksPage,

@@ -52,11 +52,9 @@
     /* ==========================================================================
        INITIAL LOAD BOOTSTRAP
        ========================================================================== */
-    window.getAprendaSinaisPage = (page) => ['home', 'sobre', 'login', 'cadastro', 'redefinir-senha'].includes(page) ? renderPublicPage(page) : renderAuthenticatedDashboardLayout(page);
+    window.getAprendaSinaisPage = (page) => ['home', 'sobre', 'login', 'cadastro'].includes(page) ? renderPublicPage(page) : renderAuthenticatedDashboardLayout(page);
     window.initializeAprendaSinais = function () {
-      const requestedPage = new URLSearchParams(window.location.search).get('page');
-      if (requestedPage === 'redefinir-senha') state.activePage = requestedPage;
-      if (!state.isAuthenticated && !['home', 'sobre', 'login', 'cadastro', 'redefinir-senha'].includes(state.activePage)) state.activePage = 'home';
+      if (!state.isAuthenticated && !['home', 'sobre', 'login', 'cadastro'].includes(state.activePage)) state.activePage = 'home';
       navigateTo(state.activePage || 'home');
     };
     window.initializeAprendaSinaisCharts = initAnalyticsCharts;
