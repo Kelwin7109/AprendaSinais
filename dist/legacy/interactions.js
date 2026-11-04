@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
        MODALS INTERACTION HANDLERS (STAGE STUDY VIEW & EBOOKS)
        ========================================================================== */
 
@@ -8,7 +8,7 @@
       const content = document.getElementById('stage-modal-content');
 
       if (!step.content) {
-        showToast('Esta etapa estÃ¡ bloqueada ou em desenvolvimento.', 'warning');
+        showToast('Esta etapa está bloqueada ou em desenvolvimento.', 'warning');
         return;
       }
 
@@ -16,7 +16,7 @@
         <div class="space-y-6">
           <div class="flex items-center justify-between border-b border-slate-100 pb-4">
             <div>
-              <span class="text-xs font-bold uppercase tracking-wider text-brand-600">${step.category} â€¢ Etapa ${step.id} de 10</span>
+              <span class="text-xs font-bold uppercase tracking-wider text-brand-600">${step.category} • Etapa ${step.id} de 10</span>
               <h2 class="text-2xl font-black text-slate-900 hc-text">${step.title}</h2>
             </div>
             <span class="bg-brand-50 text-brand-700 text-xs font-bold px-3 py-1.5 rounded-xl border border-brand-200">
@@ -27,12 +27,12 @@
           <!-- Explanation & SVG Visual -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
             <div class="space-y-3">
-              <h3 class="text-base font-bold text-slate-900 hc-text">Conceito e ExplicaÃ§Ã£o</h3>
+              <h3 class="text-base font-bold text-slate-900 hc-text">Conceito e Explicação</h3>
               <p class="text-xs text-slate-600 leading-relaxed">${step.content.summary}</p>
               <p class="text-xs text-slate-600 leading-relaxed">${step.content.details}</p>
               
               <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 text-xs text-amber-900 font-medium space-y-1">
-                <span class="font-bold block">ðŸ’¡ Dica Visual:</span>
+                <span class="font-bold block">💡 Dica Visual:</span>
                 <p>${step.content.tips}</p>
               </div>
             </div>
@@ -48,7 +48,7 @@
           <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-3 hc-card">
             <h3 class="text-sm font-bold text-slate-900 flex items-center space-x-2 hc-text">
               <i data-lucide="help-circle" class="w-4 h-4 text-brand-600"></i>
-              <span>ExercÃ­cio de FixaÃ§Ã£o</span>
+              <span>Exercício de Fixação</span>
             </h3>
             <p class="text-xs font-semibold text-slate-700">${step.content.exercise.question}</p>
 
@@ -70,7 +70,7 @@
             </button>
             <button onclick="completeCurrentStage(${step.id})" class="bg-emerald-600 hover:bg-emerald-700 text-white font-black px-6 py-3 rounded-xl text-xs shadow-md transition flex items-center space-x-2">
               <i data-lucide="check" class="w-4 h-4"></i>
-              <span>Marcar como ConcluÃ­da</span>
+              <span>Marcar como Concluída</span>
             </button>
           </div>
         </div>
@@ -90,11 +90,11 @@
 
       if (selected === correct) {
         fb.classList.add('bg-emerald-100', 'text-emerald-900');
-        fb.innerHTML = "âœ¨ Resposta correta! Excelente atenÃ§Ã£o aos detalhes.";
-        showToast('ExercÃ­cio respondido com sucesso!', 'success');
+        fb.innerHTML = "✨ Resposta correta! Excelente atenção aos detalhes.";
+        showToast('Exercício respondido com sucesso!', 'success');
       } else {
         fb.classList.add('bg-rose-100', 'text-rose-900');
-        fb.innerHTML = "âŒ Resposta incorreta. Revise o texto conceitual acima e tente novamente.";
+        fb.innerHTML = "❌ Resposta incorreta. Revise o texto conceitual acima e tente novamente.";
       }
     }
 
@@ -109,7 +109,7 @@
 
       saveState();
       closeStageModal();
-      showToast(`Etapa ${stepId} concluÃ­da com sucesso!`, 'success');
+      showToast(`Etapa ${stepId} concluída com sucesso!`, 'success');
       navigateTo('dashboard');
     }
 
@@ -124,19 +124,19 @@
         <div class="space-y-4">
           <span class="text-xs font-extrabold uppercase tracking-wider text-brand-600">Leitor Interativo de E-book</span>
           <h2 class="text-2xl font-black text-slate-900 hc-text">${ebook.title}</h2>
-          <p class="text-xs text-slate-500 font-semibold">Autor: ${ebook.author} â€¢ ${ebook.pages}</p>
+          <p class="text-xs text-slate-500 font-semibold">Autor: ${ebook.author} • ${ebook.pages}</p>
           <hr class="border-slate-100">
 
           <div class="text-xs text-slate-700 space-y-3 leading-relaxed">
             <p>${ebook.sampleContent}</p>
-            <h4 class="font-bold text-slate-900 pt-2">TÃ³picos Abordados neste E-book:</h4>
+            <h4 class="font-bold text-slate-900 pt-2">Tópicos Abordados neste E-book:</h4>
             <ul class="list-disc pl-5 space-y-1">
               ${ebook.topics.map(t => `<li>${t}</li>`).join('')}
             </ul>
           </div>
 
           <div class="pt-4 flex justify-between items-center border-t border-slate-100">
-            <button onclick="showToast('SimulaÃ§Ã£o de Download do PDF iniciada!', 'info')" class="bg-brand-50 hover:bg-brand-100 text-brand-700 font-bold px-4 py-2 rounded-xl text-xs border border-brand-200 transition flex items-center space-x-1.5">
+            <button onclick="showToast('Simulação de Download do PDF iniciada!', 'info')" class="bg-brand-50 hover:bg-brand-100 text-brand-700 font-bold px-4 py-2 rounded-xl text-xs border border-brand-200 transition flex items-center space-x-1.5">
               <i data-lucide="download" class="w-4 h-4"></i>
               <span>Baixar PDF Completo</span>
             </button>

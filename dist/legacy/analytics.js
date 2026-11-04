@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
        CHART.JS ANALYTICS INITIALIZATION
        ========================================================================== */
 
@@ -10,7 +10,7 @@
         new Chart(weeklyCtx, {
           type: 'line',
           data: {
-            labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'SÃ¡b', 'Dom'],
+            labels: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
             datasets: [{
               label: 'Minutos Estudados',
               data: [20, 35, 15, 45, 30, 50, 30],
@@ -35,7 +35,7 @@
         new Chart(donutCtx, {
           type: 'doughnut',
           data: {
-            labels: ['ConcluÃ­das', 'Restantes'],
+            labels: ['Concluídas', 'Restantes'],
             datasets: [{
               data: [done, remaining],
               backgroundColor: ['#10b981', '#cbd5e1']
@@ -53,5 +53,8 @@
        INITIAL LOAD BOOTSTRAP
        ========================================================================== */
     window.getAprendaSinaisPage = (page) => ['home', 'sobre', 'login', 'cadastro'].includes(page) ? renderPublicPage(page) : renderAuthenticatedDashboardLayout(page);
-    window.initializeAprendaSinais = function () { navigateTo(state.activePage || 'dashboard'); };
+    window.initializeAprendaSinais = function () {
+      if (!state.isAuthenticated && !['home', 'sobre', 'login', 'cadastro'].includes(state.activePage)) state.activePage = 'home';
+      navigateTo(state.activePage || 'home');
+    };
     window.initializeAprendaSinaisCharts = initAnalyticsCharts;
